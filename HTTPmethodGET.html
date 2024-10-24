@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP GET</title>
+</head>
+<body>
+    <button id="btn">GET Data</button>
+    <!-- postman is used to test the API's -->
+     <!-- GET : used to retirve the data -->
+     <script>
+            let btn=document.getElementById("btn");
+            btn.addEventListener("click",()=>{
+             async function myfn(){
+                let data= await fetch("http://localhost:3000/posts/2",{method:"DELETE", headers:{
+                "Content-Type":"application/json"}, 
+                body:JSON.stringify({
+                    "Name":"HERO",
+                    "IDP":"UFF",
+                    
+                })
+            });
+           let dd= await data.json();
+           console.log(dd["posts"]);
+             }
+             myfn();
+            })
+            
+        
+        
+     </script>
+
+</body>
+</html>
