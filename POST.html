@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP POST</title>
+</head>
+<body>
+    <button id="btn">Post Data</button>
+    <!-- postman is used to test the API's -->
+     <!-- POST: used to create the data -->
+     <script>
+            let btn=document.getElementById("btn");
+            btn.addEventListener("click",()=>{
+             async function myfn(){
+                let data= await fetch("http://localhost:3000/posts",{method:"POST", headers:{
+                "Content-Type":"application/json"}, 
+                body:JSON.stringify({
+                    "Peru":"Peter",
+                    "age":55,
+                    
+                })
+            });
+           let dd= await data.json();
+           console.log(dd);
+             }
+             myfn();
+            })
+            
+        
+        
+     </script>
+
+</body>
+</html>
